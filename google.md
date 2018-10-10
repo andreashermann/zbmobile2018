@@ -7,11 +7,11 @@ slidenumbers: true
 
 ---
 
-# Most Important Things
+# Most Important Topics
 * Android 9 Pie
 * Security Enhancements
 * Android App Bundle
-* Kotlin & Android KTX
+* Jetpack
 * Flutter
 * Announcements
 
@@ -27,9 +27,11 @@ slidenumbers: true
 * Wind down & Do Not disturb
 * Adaptive Battery, Brightness
 * App Actions
-* Digital Well Being (beta)
+* Digital Well Being - Beta
 
-[android.com/versions/pie-9-0](https://www.android.com/versions/pie-9-0/)
+^ TBD Add Images
+
+^ [android.com/versions/pie-9-0](https://www.android.com/versions/pie-9-0/)
 
 ---
 
@@ -39,7 +41,9 @@ slidenumbers: true
 * Android Protected Confirmation
 * Encrypted Android Backups
 * Android biometric prompt
-* Privacy enhancements (sensors in background)
+* Privacy enhancements 
+
+^ Access to sensors in background
 
 ---
 
@@ -71,34 +75,58 @@ slidenumbers: true
 * Android Studio 3.2
 * App signing by Google Play
 
-[](https://developer.android.com/guide/app-bundle/)
-[](https://developer.android.com/platform/technology/app-bundle/)
-[](https://medium.com/google-developer-experts/exploring-the-android-app-bundle-ca16846fa3d7)
-[](https://support.google.com/googleplay/android-developer/answer/7384423?hl=en)
+^ [](https://developer.android.com/guide/app-bundle/)
+^ [](https://developer.android.com/platform/technology/app-bundle/)
+^ [](https://medium.com/google-developer-experts/exploring-the-android-app-bundle-ca16846fa3d7)
+^ [](https://support.google.com/googleplay/android-developer/answer/7384423?hl=en)
 
 ---
 
-# Kotlin & Android KTX
+# Android Jetpack
 
-TBD
+*Rebranded Support Library*
+
+* Foundation
+* Architecture
+* Behaviour
+* UI
+
+^ [Jetpack](http://developer.android.com/jetpack)
+^ [Architecture Components](https://developer.android.com/topic/libraries/architecture/)
+
+^ Rebranding of existing tools: Support Library. New Namespace androidx
+^ Foundation: Android KTX
+^ Architecture: Data Binding, Lifecycles, Paging, Room, ViewModel, WorkManager
+^ Behaviour: Notifications, Permissions, Slices
+^ UI: Animations, Emoji, Layout
+
+---
+
+# Kotlin - Android KTX
+
+* Android KTX – Extensions for Kotlin
+
+[](https://www.youtube.com/watch?v=st1XVfkDWqk)
+
+^ Mostly Syntactical Sugar
 
 ---
 
 # Flutter
+## Release Preview 2
 
+^ Release Preview 2 - 19. Sep 2018
 ^ Googles new Hybrid App Platform
 
 ---
 
 # Flutter
 
-* Compiles to native Code
+* Dart 2, compiles to native code
 * Stateful Hot Reload
 * Access native SDKs and Services
 * Widget Library
 * Navigation, Testing, State Management
-* Release Preview 2 (19. Sep 2018)
-* Based on Dart 2
 
 [](https://www.youtube.com/watch?v=fq4N0hgOWzU&vl=en)
 [](https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7)
@@ -115,15 +143,16 @@ TBD
 
 # Announcements
 
-* Indoor positioning with Wi-Fi RTT
-* Android Slices (Support Library)
-	TBD
-* App Actions
-	TBD
+* Google Duplex - Demo
+* Indoor positioning - Demo
 * Android Things
-	TBD
+* Android Jetpack
+  * Android Slices
+  * App Actions
 * Android Go
 	TBD
+
+^ Wi-Fi RTT
 
 ---
 
@@ -132,6 +161,8 @@ TBD
 ![](google-duplex-hair-salon.mp3)
 
 [AI Google Blog](https://ai.googleblog.com/2018/05/duplex-ai-system-for-natural-conversation.html)
+
+^ Available on Pixel 3 in 2018
 	
 ---
 
