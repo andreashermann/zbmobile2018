@@ -1,5 +1,5 @@
-footer: © Ergon Informatik AG
 slidenumbers: true
+build-lists: true
 
 # What's new in the Google World 
 
@@ -11,43 +11,85 @@ slidenumbers: true
 * Android 9 Pie
 * Security Enhancements
 * Android App Bundle
+* Kotlin
 * Jetpack
 * Flutter
-* Announcements
-
----
-
-# Android 9 Pie
-![](android-9-pie.png)
 
 ---
 
 # Android 9 Pie
 * Gestures
 * Wind down & Do Not disturb
+* Digital Well Being - Beta
 * Adaptive Battery, Brightness
 * App Actions
-* Digital Well Being - Beta
+* Slices
 
-^ TBD Add Images
+![right](android-9-pie.png)
 
-^ [android.com/versions/pie-9-0](https://www.android.com/versions/pie-9-0/)
+^ Adaptive Battery: ML to prioritize access to resources 
+  "App Standby buckets" "active" ... "rare".
+
+---
+
+![](gestures.gif)
+
+---
+
+![](app-actions.gif)
 
 ---
 
 # Security Enhancements
 
-* APK key rotation!
-* Android Protected Confirmation
 * Encrypted Android Backups
 * Android biometric prompt
+* New KeyStore type `StrongBox`
+  `setIsStrongBoxBacked(true)`
+* Import Keys ASN.1-encoded
 * Privacy enhancements 
 
-^ Access to sensors in background
+![right](biometric-prompt.png)
+
+^ TEE: CPU, Storage, True RNG, Tampering
+^ Key never in device hosts memory
+  https://developer.android.com/training/articles/keystore
+^ Privacy: Access to sensors in background is restricted
+
+---
+
+# APK Key Rotation
+
+* `APK Signature Scheme v3`
+* Requires Android 9
+
+^ Finally! Helps when signing key lost/stolen
+^ Signature Scheme: v1 - sign JAR, v2 sign metadata (Android 7.0), v3 APK Signer Lineage
+^ Proof-of-rotaton: history of signing certificates with each ancestor attesting to the validity of its descendant
+  https://www.xda-developers.com/apk-signature-scheme-v3-key-rotation/
+
+---
+
+# Android Protected Confirmation
+
+* Prompt user to confirm statement
+  `ConfirmationPrompt.Builder(context)
+        .setPromptText(...)
+        .build()
+        .presentPrompt(executor, callback)
+  `
+* Runs in Trusted Execution Environment
+
+^ Prompt user to confirm statement - signs statement
+^ Extra data - cryptographic nonce (replay attacks)
+^ https://developer.android.com/training/articles/keystore
 
 ---
 
 # Android App Bundle
+
+
+![right fit](android-app-bundle.png)
 
 ---
 
@@ -58,19 +100,18 @@ slidenumbers: true
 
 ---
 
-# AAB - Details
-* Manifest/Resources compile as Protobuf
-* Split APK per: CPU, Screen Density, Language
+# App Bundle - Details
+* Manifest/Resources -> Protobuf
+* Split APK per
+  * CPU Architecture
+  * Screen Density
+  * Language
+
+![right fit](aab-splits.png)
 
 ---
 
-# AAB - Splits
-
-![inline](aab-splits.png)
-
----
-
-# AAB – Requirements
+# App Bundle – Requirements
 * Android Lollipop 5.0
 * Android Studio 3.2
 * App signing by Google Play
@@ -79,6 +120,30 @@ slidenumbers: true
 ^ [](https://developer.android.com/platform/technology/app-bundle/)
 ^ [](https://medium.com/google-developer-experts/exploring-the-android-app-bundle-ca16846fa3d7)
 ^ [](https://support.google.com/googleplay/android-developer/answer/7384423?hl=en)
+
+---
+
+# Kotlin Tricks
+
+* `inline` extension optimization
+* `reified` - access generic parameter
+* operators
+* ...
+
+![right fit](https://www.youtube.com/watch?v=st1XVfkDWqk)
+
+---
+
+# Android KTX – Extensions for Kotlin
+
+* Kotlinification
+  `view.updatePadding(left = 5, right = 10)`
+* Default to inline
+* No __code golf__ API
+
+^ Mostly Syntactical Sugar. Kotlinfication.
+  https://www.youtube.com/watch?v=st1XVfkDWqk
+^ Part of Jetpack
 
 ---
 
@@ -100,15 +165,14 @@ slidenumbers: true
 ^ Behaviour: Notifications, Permissions, Slices
 ^ UI: Animations, Emoji, Layout
 
+
 ---
 
-# Kotlin - Android KTX
+# Jetpack - Navigation
 
-* Android KTX – Extensions for Kotlin
+* iOS style navigation editor
 
-[](https://www.youtube.com/watch?v=st1XVfkDWqk)
-
-^ Mostly Syntactical Sugar
+![right](navigation-editor.png)
 
 ---
 
@@ -156,18 +220,96 @@ slidenumbers: true
 
 ---
 
-# Google Duplex Demo
+# Google Duplex – Demo
 
-![](google-duplex-hair-salon.mp3)
-
-[AI Google Blog](https://ai.googleblog.com/2018/05/duplex-ai-system-for-natural-conversation.html)
+![inline](https://youtu.be/bd1mEm2Fy08?t=1m9s)
 
 ^ Available on Pixel 3 in 2018
 	
 ---
 
-# Wi-Fi RTT Demo
+# Wi-Fi RTT – Demo
 
-![autoplay,inline](https://youtu.be/vywGgSrGODU?list=PLWz5rJ2EKKc9Gq6FEnSXClhYkWAStbwlC&t=340)
+* Measure Distance to AP, Devices
+* `WifiRttManager`
+* Runs on Pixel 2
 
+
+![right](https://youtu.be/vywGgSrGODU?list=PLWz5rJ2EKKc9Gq6FEnSXClhYkWAStbwlC&t=340)
+
+^ measure distance to supporting Access Points and peer devices.
 ^ play until 6:15
+^ https://developer.android.com/reference/android/net/wifi/rtt/WifiRttManager
+^ https://medium.com/@rafaelmiguel.ortega/android-p-first-taste-of-rtt-support-febefb679775
+
+---
+
+# Android Things
+
+* Fully Managed Device
+* IoT Android OS 
+* Certified Managed Hardware
+* Google Services
+
+![right](android-things.png)
+
+https://androidthings.withgoogle.com/#!/
+
+^ 50% smaller android distribution
+^ Management Console
+^ Automatic Updates
+^ https://www.youtube.com/watch?v=e_PI_Npb3-U
+
+---
+
+# The Google Ecosystem
+
+* Android, Android Go, Android Auto
+* Chrome OS
+* Android Things
+* Wear OS
+* TV OS
+* Google Cloud Services
+
+![right fit](google-world.png)
+
+---
+
+# TensorFlowLite
+
+![right fit](tflite.png)
+
+TBD
+
+---
+
+# Google ML Kit
+
+![right](mlkit.png)
+
+TBD
+
+---
+
+# Google Cloud Services
+
+* Image Labeling
+* Text Recognitition (OCR)
+* Face Detection
+* Barcode Scanning
+* Landmark detection
+* Speech-to-Text
+...
+
+^ https://cloud.google.com/products/ai/
+
+
+---
+
+# Google Cloud
+
+* Cloud TPUs
+
+TBD
+
+^ https://cloud.google.com/products/ai/
