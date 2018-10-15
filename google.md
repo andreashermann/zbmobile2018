@@ -1,7 +1,7 @@
 slidenumbers: true
 build-lists: true
 
-# What's new in the Google World 
+# What's new in the Google Developer World 
 
 ### 2018
 
@@ -73,14 +73,11 @@ build-lists: true
 # Android Protected Confirmation
 
 * Prompt user to confirm statement
-  `ConfirmationPrompt.Builder(context)
-        .setPromptText(...)
-        .build()
-        .presentPrompt(executor, callback)
-  `
+  `ConfirmationPrompt`
 * Runs in Trusted Execution Environment
+* Requires Pixel 3 Device
 
-^ Prompt user to confirm statement - signs statement
+^ Prompt user to confirm statement - signs statement cryptographically
 ^ Extra data - cryptographic nonce (replay attacks)
 ^ https://developer.android.com/training/articles/keystore
 
@@ -97,6 +94,7 @@ build-lists: true
 * Smaller download size (~20% savings)
 * Upload single artifact, download device specific APK
 * Dynamic Delivery – On demand app features
+
 
 ---
 
@@ -123,23 +121,25 @@ build-lists: true
 
 ---
 
-# Kotlin Tricks
+# Kotlin
+## No news
 
 * `inline` extension optimization
 * `reified` - access generic parameter
 * operators
-* ...
+* and more ...
 
 ![right fit](https://www.youtube.com/watch?v=st1XVfkDWqk)
 
 ---
 
-# Android KTX – Extensions for Kotlin
+# Android KTX
+## Extensions for Kotlin
 
 * Kotlinification
   `view.updatePadding(left = 5, right = 10)`
-* Default to inline
-* No __code golf__ API
+ * Default to inline
+ * No __code golf__ API
 
 ^ Mostly Syntactical Sugar. Kotlinfication.
   https://www.youtube.com/watch?v=st1XVfkDWqk
@@ -151,36 +151,54 @@ build-lists: true
 
 *Rebranded Support Library*
 
-* Foundation
-* Architecture
-* Behaviour
-* UI
+* Foundation: Android KTX
+* Architecture: Data Binding, Room, ViewModel, Navigation ...
+* Behaviour: Notifications, Slices, ...
+* UI: Animations, Emoji, Layouts, ...
 
 ^ [Jetpack](http://developer.android.com/jetpack)
 ^ [Architecture Components](https://developer.android.com/topic/libraries/architecture/)
-
 ^ Rebranding of existing tools: Support Library. New Namespace androidx
+
 ^ Foundation: Android KTX
 ^ Architecture: Data Binding, Lifecycles, Paging, Room, ViewModel, WorkManager
 ^ Behaviour: Notifications, Permissions, Slices
 ^ UI: Animations, Emoji, Layout
 
-
 ---
 
 # Jetpack - Navigation
 
-* iOS style navigation editor
+* Principles
+  * Fixed starting destination (excl. Launch Screen)
+  * Stack represents navigation state
+* Visual navigation editor (like in XCode)
 
 ![right](navigation-editor.png)
 
+^ The Navigation Architecture simplifies the implementation of navigation between destinations in an app.
+^ Types: Fragments, Activities, Navigation graphs
+^ Principles: Start, Stack, Up Button never exits, up == back, deep linking
+^ https://developer.android.com/topic/libraries/architecture/navigation/navigation-implementing#Create-transition
+^ Android Studio 3.2
+
 ---
+
+<!--
+# Jetpack – Announcements
+
+  * App Actions
+  * Slices
+--->
 
 # Flutter
 ## Release Preview 2
 
 ^ Release Preview 2 - 19. Sep 2018
+  Live December 4th 2018
 ^ Googles new Hybrid App Platform
+
+![right](flutter.png)
 
 ---
 
@@ -196,7 +214,6 @@ build-lists: true
 [](https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7)
 [](https://flutter.io/widgets/)
 
-
 ^ Not based on web technologies. Single codebase, two platforms.
 ^ Reloads like React Native! Highly productive!
 ^ CSS style UI
@@ -205,16 +222,16 @@ build-lists: true
 
 ---
 
+![fit](flutter-hot-reload.gif)
+
+---
+
 # Announcements
 
 * Google Duplex - Demo
-* Indoor positioning - Demo
+* Wi-Fi RTT Indoor positioning - Demo
 * Android Things
-* Android Jetpack
-  * Android Slices
-  * App Actions
-* Android Go
-	TBD
+* ML on Android
 
 ^ Wi-Fi RTT
 
@@ -234,7 +251,6 @@ build-lists: true
 * `WifiRttManager`
 * Runs on Pixel 2
 
-
 ![right](https://youtu.be/vywGgSrGODU?list=PLWz5rJ2EKKc9Gq6FEnSXClhYkWAStbwlC&t=340)
 
 ^ measure distance to supporting Access Points and peer devices.
@@ -247,26 +263,92 @@ build-lists: true
 # Android Things
 
 * Fully Managed Device
-* IoT Android OS 
+* IoT optimized Android OS 
 * Certified Managed Hardware
 * Google Services
 
 ![right](android-things.png)
 
-https://androidthings.withgoogle.com/#!/
-
 ^ 50% smaller android distribution
 ^ Management Console
 ^ Automatic Updates
+^ https://androidthings.withgoogle.com
 ^ https://www.youtube.com/watch?v=e_PI_Npb3-U
+
+---
+
+<!--
+
+# Android Go Edition
+
+* Runs on 8GB ROM
+* Data Saver
+* Peer-to-Peer Sharing
+
+^ https://www.android.com/versions/go-edition/
+
+---
+-->
+
+# ML on Android
+
+* Neural Networks API
+  C API
+* TensorFlowLite
+  C++ API, Java Wrapper
+* ML Kit (Firebase)
+  On-device & Cloud Features
+
+![right](mlkit.png)
+
+^ Neural Networks API - Part of NDK
+  https://developer.android.com/ndk/guides/neuralnetworks/
+^ TFLite: Mobile & IoT. Run trained models with low latency on device
+  https://www.tensorflow.org/lite/
+^ ML Kit
+  https://developers.google.com/ml-kit/
+  Image Labeling, Text Recognitition (OCR), Face Detection, Barcode Scanning, Landmark detection
+
+---
+
+<!--
+# TensorFlowLite
+
+* Android, iOS, IoT Devices
+* Requires Android NDK
+* Convert models
+
+![right fit](tflite.png)
+
+^ https://www.tensorflow.org/lite/
+^ TF->CoreML Converter
+  https://github.com/tf-coreml/tf-coreml
+---
+-->
+
+<!--
+# Google AR Core
+
+https://developers.google.com/ar/discover/
+https://developers.google.com/ar/develop/
+---
+-->
+
+# Google Cloud ML Services $$$
+
+* Vision API
+* Speech-to-Text
+* Text-to-Speech
+...
+
+^ https://cloud.google.com/products/ai/
 
 ---
 
 # The Google Ecosystem
 
-* Android, Android Go, Android Auto
+* Android, Android Go, Android Auto, Android Things
 * Chrome OS
-* Android Things
 * Wear OS
 * TV OS
 * Google Cloud Services
@@ -275,41 +357,5 @@ https://androidthings.withgoogle.com/#!/
 
 ---
 
-# TensorFlowLite
-
-![right fit](tflite.png)
-
-TBD
-
----
-
-# Google ML Kit
-
-![right](mlkit.png)
-
-TBD
-
----
-
-# Google Cloud Services
-
-* Image Labeling
-* Text Recognitition (OCR)
-* Face Detection
-* Barcode Scanning
-* Landmark detection
-* Speech-to-Text
-...
-
-^ https://cloud.google.com/products/ai/
-
-
----
-
-# Google Cloud
-
-* Cloud TPUs
-
-TBD
-
-^ https://cloud.google.com/products/ai/
+# Fragen ?
+## `else goto Pieter`
