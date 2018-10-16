@@ -8,13 +8,13 @@ build-lists: true
 ---
 
 # Most Important Topics
-* Android 9 Pie
-* Security Enhancements
+* Android 9 Security Enhancements
 * Android App Bundle
 * Kotlin
 * Jetpack
 * Flutter
 
+<!--
 ---
 
 # Android 9 Pie
@@ -30,6 +30,9 @@ build-lists: true
 ^ Adaptive Battery: ML to prioritize access to resources 
   "App Standby buckets" "active" ... "rare".
 
+-->
+
+<!--
 ---
 
 ![](gestures.gif)
@@ -37,21 +40,21 @@ build-lists: true
 ---
 
 ![](app-actions.gif)
+-->
 
 ---
 
 # Security Enhancements
 
-* Encrypted Android Backups
 * Android biometric prompt
-* New KeyStore type `StrongBox`
-  `setIsStrongBoxBacked(true)`
+* KeyStore Type `StrongBox`
 * Import Keys ASN.1-encoded
+* Encrypted Android Backups
 * Privacy enhancements 
 
 ![right](biometric-prompt.png)
 
-^ TEE: CPU, Storage, True RNG, Tampering
+^ Trusted Execution Environment: CPU, Storage, RNG
 ^ Key never in device hosts memory
   https://developer.android.com/training/articles/keystore
 ^ Privacy: Access to sensors in background is restricted
@@ -77,6 +80,7 @@ build-lists: true
 * Runs in Trusted Execution Environment
 * Requires Pixel 3 Device
 
+^ TEE: CPU, Storage, True RNG, Tampering
 ^ Prompt user to confirm statement - signs statement cryptographically
 ^ Extra data - cryptographic nonce (replay attacks)
 ^ https://developer.android.com/training/articles/keystore
@@ -88,17 +92,19 @@ build-lists: true
 
 ![right fit](android-app-bundle.png)
 
+^ APK - Android Package Format
+
 ---
 
 # Android App Bundle
-* Smaller download size (~20% savings)
 * Upload single artifact, download device specific APK
 * Dynamic Delivery – On demand app features
+* Smaller download size (~20% savings)
 
 
 ---
 
-# App Bundle - Details
+# App Bundle Details
 * Manifest/Resources -> Protobuf
 * Split APK per
   * CPU Architecture
@@ -124,10 +130,8 @@ build-lists: true
 # Kotlin
 ## No news
 
-* `inline` extension optimization
-* `reified` - access generic parameter
-* operators
-* and more ...
+* Video Tipp - Jake Wharton
+
 
 ![right fit](https://www.youtube.com/watch?v=st1XVfkDWqk)
 
@@ -136,10 +140,8 @@ build-lists: true
 # Android KTX
 ## Extensions for Kotlin
 
-* Kotlinification
-  `view.updatePadding(left = 5, right = 10)`
- * Default to inline
- * No __code golf__ API
+* API Kotlinification
+* No __code golf__ API
 
 ^ Mostly Syntactical Sugar. Kotlinfication.
   https://www.youtube.com/watch?v=st1XVfkDWqk
@@ -151,10 +153,10 @@ build-lists: true
 
 *Rebranded Support Library*
 
-* Foundation: Android KTX
-* Architecture: Data Binding, Room, ViewModel, Navigation ...
-* Behaviour: Notifications, Slices, ...
-* UI: Animations, Emoji, Layouts, ...
+* __Foundation__: Android KTX
+* __Architecture__: Data Binding, Room, ViewModel, Navigation ...
+* __Behaviour__: Notifications, Slices, ...
+* __UI__: Animations, Emoji, Layouts, ...
 
 ^ [Jetpack](http://developer.android.com/jetpack)
 ^ [Architecture Components](https://developer.android.com/topic/libraries/architecture/)
@@ -167,12 +169,12 @@ build-lists: true
 
 ---
 
-# Jetpack - Navigation
+# Jetpack Navigation
 
-* Principles
-  * Fixed starting destination (excl. Launch Screen)
-  * Stack represents navigation state
-* Visual navigation editor (like in XCode)
+* Managed Navigation
+  * Pass data type-safe
+  * Transition Animations
+* Visual navigation editor
 
 ![right](navigation-editor.png)
 
@@ -204,25 +206,33 @@ build-lists: true
 
 # Flutter
 
-* Dart 2, compiles to native code
+* Efficient, Native UI, Native Performance
 * Stateful Hot Reload
-* Access native SDKs and Services
 * Widget Library
+* Dart 2, compiles to native code
+* Access native SDKs and Services
 * Navigation, Testing, State Management
 
 [](https://www.youtube.com/watch?v=fq4N0hgOWzU&vl=en)
 [](https://medium.com/dartlang/dart-2-stable-and-the-dart-web-platform-3775d5f8eac7)
 [](https://flutter.io/widgets/)
 
+^ Mobile App SDK for Android & iOS
 ^ Not based on web technologies. Single codebase, two platforms.
 ^ Reloads like React Native! Highly productive!
 ^ CSS style UI
 ^ Built-in iOS/Material Design & Widgets, State Management
 ^ More Features than React Native! Complete Set for App. No Third Party Libs necessary.
+^ gemischte Erfahrungen: Hackathon-Team: Orlando, Fabian, Jonas, Yves
+  IDE, Hot Reloading, Widgets
 
+
+<!--
 ---
 
 ![fit](flutter-hot-reload.gif)
+--->
+
 
 ---
 
@@ -239,19 +249,21 @@ build-lists: true
 
 # Google Duplex – Demo
 
-![inline](https://youtu.be/bd1mEm2Fy08?t=1m9s)
+AI driven phone-calls
 
+![inline](https://youtu.be/TO6E-qTk1w4)
+
+^ Technology for natural conversations to carry out “real world” tasks over the phone
+^ Google I/O Demo https://youtu.be/bd1mEm2Fy08?t=1m9s
 ^ Available on Pixel 3 in 2018
 	
 ---
 
 # Wi-Fi RTT – Demo
 
-* Measure Distance to AP, Devices
-* `WifiRttManager`
-* Runs on Pixel 2
+Indoor Positioning: Distance to Access Point
 
-![right](https://youtu.be/vywGgSrGODU?list=PLWz5rJ2EKKc9Gq6FEnSXClhYkWAStbwlC&t=340)
+![inline](https://youtu.be/vywGgSrGODU?list=PLWz5rJ2EKKc9Gq6FEnSXClhYkWAStbwlC&t=340)
 
 ^ measure distance to supporting Access Points and peer devices.
 ^ play until 6:15
@@ -262,13 +274,14 @@ build-lists: true
 
 # Android Things
 
-* Fully Managed Device
 * IoT optimized Android OS 
+* Fully Managed Device
 * Certified Managed Hardware
 * Google Services
 
 ![right](android-things.png)
 
+^ IoT: Internet of Things
 ^ 50% smaller android distribution
 ^ Management Console
 ^ Automatic Updates
@@ -298,6 +311,7 @@ build-lists: true
   C++ API, Java Wrapper
 * ML Kit (Firebase)
   On-device & Cloud Features
+* Google Cloud ML Services $$$
 
 ![right](mlkit.png)
 
@@ -309,9 +323,9 @@ build-lists: true
   https://developers.google.com/ml-kit/
   Image Labeling, Text Recognitition (OCR), Face Detection, Barcode Scanning, Landmark detection
 
+<!--
 ---
 
-<!--
 # TensorFlowLite
 
 * Android, iOS, IoT Devices
@@ -334,14 +348,17 @@ https://developers.google.com/ar/develop/
 ---
 -->
 
+<!--
 # Google Cloud ML Services $$$
 
 * Vision API
 * Speech-to-Text
 * Text-to-Speech
-...
+
+  Many more...
 
 ^ https://cloud.google.com/products/ai/
+-->
 
 ---
 
@@ -357,5 +374,5 @@ https://developers.google.com/ar/develop/
 
 ---
 
-# Fragen ?
+# Questions?
 ## `else goto Pieter`
